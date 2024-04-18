@@ -1,4 +1,5 @@
 
+
 import React from 'react'
 import RemoveBtn from './RemoveBtn'
 import Link from 'next/link'
@@ -6,7 +7,7 @@ import Link from 'next/link'
 
 const getInvoices = async ()=>{
     try {
-      const res =  await fetch('http://localhost:3000/api/invoices',
+      const res =  await fetch('http://localhost:3000/api',
     {cache: 'no-store'})
 
     // cache: "no-store" because we want to recieve new updated topic list every time we fetch/get
@@ -53,7 +54,7 @@ const InvoiceList =async () => {
             
                 {/* editTopic has dynamic id so enclosing in back ticks.the dynamic id is fetched from Mongo DB id
                 which is in variable "_id" ; t._id because calling from object t which is being mapped*/}
-                <Link href={`/editTopic/${t._id}`}> 
+                <Link href={`/editInvoice/${t._id}`}> 
                     Edit Topic here
                 </Link>
             </div>
