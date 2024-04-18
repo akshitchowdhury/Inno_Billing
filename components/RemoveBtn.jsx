@@ -22,9 +22,11 @@ const RemoveBtn = ({id}) => {
     }
   }
   return (
-    <button onClick={removeTopic} className='text-red-400 bg-sky-500 text-zinc-700'>
-        Click to delete
-    </button>
+    <button onClick={removeTopic} className="bg-zinc-700 text-white hover:bg-red-400
+     hover:text-red-700 transition-colors duration-300 py-2 px-4 rounded-lg">
+  Click to delete
+</button>
+
   )
 }
 

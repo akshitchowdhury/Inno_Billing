@@ -1,71 +1,59 @@
+import React from "react";
+import RemoveBtn from "./RemoveBtn";
+import Link from "next/link";
 
-
-import React from 'react'
-import RemoveBtn from './RemoveBtn'
-import Link from 'next/link'
-
-
-const getInvoices = async ()=>{
-    try {
-      const res =  await fetch('http://localhost:3000/api',
-    {cache: 'no-store'})
+const getInvoices = async () => {
+  try {
+    const res = await fetch("http://localhost:3000/api", { cache: "no-store" });
 
     // cache: "no-store" because we want to recieve new updated topic list every time we fetch/get
 
-    if(!res.ok){
-        throw new Error("Failed to fetch topics")
+    if (!res.ok) {
+      throw new Error("Failed to fetch topics");
     }
 
-    return res.json()
+    return res.json();
+  } catch (error) {
+    console.log("Error loading invoices", error);
+  }
+};
 
-    } catch (error) {
-        console.log("Error loading invoices", error)
-    }
-}
-
-
-
-const InvoiceList =async () => {
-
-        const {invoices} = await getInvoices()
+const InvoiceList = async () => {
+  const { invoices } = await getInvoices();
 
   return (
     <>
-        {
-            invoices.map((t,index)=> (
-                    
-        <div className='p-4 border border-slate-300 my-3 mx-32
-        flex justify-between gap-5 items-start' key={index}>
-            <div>
-                <h2 className='font-bold text-2xl'>{t.client}</h2>
-                <div>{t.project}</div>
-                <div>{t.description}</div>
-                <div>{t.price}</div>
-                <div>{t.category}</div>
-            </div>
-
-            <div className='flex gap-2'>
-            
-            {/* We are passing t._id to RemoveBtn as a props becaus delete button's api works on searching an id and deleting 
-            them..hence when t._id is accessible to RemoveBtn it becomes accessible for RemoveBtn to delete a selected
-            topic block */}
-
-                <RemoveBtn id={t._id}/>
-            
-                {/* editTopic has dynamic id so enclosing in back ticks.the dynamic id is fetched from Mongo DB id
-                which is in variable "_id" ; t._id because calling from object t which is being mapped*/}
-                <Link href={`/editInvoice/${t._id}`}> 
-                    Edit Topic here
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-6">
+        {invoices.map((invoice, index) => (
+          <div
+            key={index}
+            className="bg-white shadow-md border hover:bg-amber-400 hover:transform 
+            hover:scale-105
+            transition duration-500 ease-in-out  border-gray-300 rounded-lg p-4"
+          >
+            <div className="flex justify-between items-start">
+              <div>
+                <h2 className="font-bold text-xl">Client: {invoice.client}</h2>
+                <div>Project Name: {invoice.project}</div>
+                <div>Description: {invoice.description}</div>
+                <div>Price: ₹{invoice.price}</div>
+                <div>Category: {invoice.category}</div>
+              </div>
+              
+              </div>
+              <div className="flex gap-2 my-4">
+                <RemoveBtn id={invoice._id} />
+                <Link href={`/editInvoice/${invoice._id}`}>
+                  <button className="bg-indigo-700 text-white hover:bg-green-400 hover:text-red-700 transition-colors duration-300 py-2 px-4 rounded-lg">
+                    Edit Invoice
+                  </button>
                 </Link>
-            </div>
-        </div>
-
-            ))
-        }
-
-
+              </div>
+          </div>
+        ))}
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default InvoiceList
+export default InvoiceList;
