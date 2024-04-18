@@ -33,7 +33,7 @@ export default function AddInvoice(){
 
         try {
 
-           const res =  await fetch("http://localhost:3000/api/invoices", 
+           const res =  await fetch("http://localhost:3000/api", 
         {
             //since this is a post request i.e adding data to db we add the following paramtr as necessity
             method: "POST", //type of method
