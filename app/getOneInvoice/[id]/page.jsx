@@ -1,6 +1,6 @@
 //client side logi to edit a topic ; so we import EditTopicForm component and create the logic and send props to the comp
 
-import EditInvoiceForm from "@/components/EditInvoiceForm";
+import DisplayCardInfo from "@/components/DisplayCardInfo";
 
 
 const getInvoiceById = async (id) => {
@@ -19,13 +19,13 @@ const getInvoiceById = async (id) => {
     }
   };
   
-  export default async function EditInvoice({ params }) {
+  export default async function GetOneInvoice({ params }) {
     const { id } = params;
     const { invoice } = await getInvoiceById(id);
     const { 
         client, project, address, services, state, city, pin, gst, price} = invoice;
   
-    return <EditInvoiceForm id={id} client={client} 
+    return <DisplayCardInfo id={id} client={client} 
     project ={project}
     address={address}
     services={services}

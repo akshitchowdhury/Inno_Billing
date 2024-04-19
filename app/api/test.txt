@@ -1,0 +1,13 @@
+ {
+   "newClient": "Technic Const2",
+   "newProject": "Construcn24",
+   "newServices": "Website dev",
+   "newAdress": "Bengalore",
+   "newState": "Karnataka",
+   "newCity": "Bengaluru",
+   "newPin": "786001",
+   "newgst": "10009495",
+   "newPrice": "10000"
+ }
+
+

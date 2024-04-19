@@ -8,14 +8,28 @@ import { NextResponse } from "next/server";
 
 export async function POST(request){
 
-    const{client,project,
-        description,price,
-    category} = await request.json()
+    const{
+        client,
+                project,
+                address,
+                services,
+                state,
+                city,
+                pin ,
+                gst ,
+                price} = await request.json()
 
     await connectMongoDb();
-    await Invoice.create({client,project,
-        description,price,
-    category})
+    await Invoice.create({
+        client,
+                project,
+                address,
+                services,
+                state,
+                city,
+                pin ,
+                gst ,
+                price})
 
     return NextResponse.json({message: "Invoice created"}, {status: 201})
 }

@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^3.4.2",
+    "jspdf": "^2.5.1",
     "mongoose": "^8.3.2",
     "next": "14.2.1",
     "react": "^18",
