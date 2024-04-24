@@ -19,7 +19,16 @@ export async function PUT(request, {params}){
                newCity: city,
                newPin : pin,
                newGst : gst, 
-             newPrice: price,} = await request.json()
+             newPrice: price,
+             newCgst: cgst,
+                newSgst: sgst,
+                newBalance: balance,
+                newQty: qty,
+                newPfNo: pfNo,
+                newInvNo: invNo,
+                newDate: date,
+            newInvCount: invCount,
+            newPfCount: pfCount} = await request.json()
 
     await connectMongoDb();
 
@@ -31,7 +40,16 @@ export async function PUT(request, {params}){
         city,
         pin ,
         gst ,
-        price})
+        cgst,
+        sgst,
+        balance,
+        qty,
+        pfNo,
+        invNo,
+        date,
+        price,
+    invCount,
+    pfCount})
 
     return NextResponse.json({message: "Invoice succesfully Edited"}, {status: 200})
 }

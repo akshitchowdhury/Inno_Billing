@@ -1,13 +1,39 @@
- {
-   "newClient": "Technic Const2",
-   "newProject": "Construcn24",
-   "newServices": "Website dev",
-   "newAdress": "Bengalore",
-   "newState": "Karnataka",
-   "newCity": "Bengaluru",
-   "newPin": "786001",
-   "newgst": "10009495",
-   "newPrice": "10000"
- }
 
 
+----updated tabs---- 
+client,
+                project,
+                address,
+                services,
+                state,
+                city,
+                pin ,
+                gst ,
+                cgst,
+                sgst,
+                balance,
+                qty,
+                pfNo,
+                invNo,
+                date,
+                price
+
+
+{
+  newClient,
+          newProject,
+          newServices,
+          newAdress,
+          newState,
+          newCity,
+          newPin,
+          newgst,
+          newPrice,
+          newCgst,
+          newSgst,
+          newBalance,
+          newQty,
+          newPfNo,
+          newInvNo,
+          newDate
+}

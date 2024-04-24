@@ -23,7 +23,24 @@ const getInvoiceById = async (id) => {
     const { id } = params;
     const { invoice } = await getInvoiceById(id);
     const { 
-        client, project, address, services, state, city, pin, gst, price} = invoice;
+      client,
+      project,
+      address,
+      services,
+      state,
+      city,
+      pin ,
+      gst ,
+      cgst,
+      sgst,
+      balance,
+      qty,
+      pfNo,
+      invNo,
+      date,
+      price,
+    invCount,
+  pfCount} = invoice;
   
     return <EditInvoiceForm id={id} client={client} 
     project ={project}
@@ -33,5 +50,14 @@ const getInvoiceById = async (id) => {
     city = {city}
     pin = {pin}
     gst = {gst}
-    price={price}  />;
+    price={price}  
+    cgst={cgst}  
+    sgst={sgst}  
+    balance={balance}  
+    pfNo={pfNo}  
+    invNo={invNo}  
+    date={date}  
+    qty={qty} 
+    invCount = {invCount} 
+    pfCount = {pfCount} />
   }

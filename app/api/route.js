@@ -17,7 +17,15 @@ export async function POST(request){
                 city,
                 pin ,
                 gst ,
-                price} = await request.json()
+                cgst,
+                sgst,
+                balance,
+                qty,
+                pfNo,
+                invNo,
+                date,
+                price,
+            } = await request.json()
 
     await connectMongoDb();
     await Invoice.create({
@@ -29,7 +37,15 @@ export async function POST(request){
                 city,
                 pin ,
                 gst ,
-                price})
+                cgst,
+                sgst,
+                balance,
+                qty,
+                pfNo,
+                invNo,
+                date,
+                price,
+                })
 
     return NextResponse.json({message: "Invoice created"}, {status: 201})
 }

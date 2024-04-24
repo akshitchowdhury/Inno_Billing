@@ -1,47 +1,40 @@
 import { Schema } from "mongoose";
 import mongoose from "mongoose";
 
-// client,
-//         project,
-//         address,
-//         state,
-//         city,
-//         pin ,
-//         gst ,
-// price
-
-
-// newClient : client,
-//         newProject: project,
-//      newAdress: address,
-//        newState : state,
-//        newCity: city,
-//        newPin : pin,
-//        newGst : gst 
-//      newPrice: price,
-
-        
 
 
 const invoiceSchema = new Schema(
-    {
-        client: String,
-        project: String,
-        services : String,
-        address : String,
-        state: String,
-        city: String,
-        pin : Number,
-        gst : Number,
-        price: Number,
-        
-
+  {
+    client: String,
+    project: String,
+    services: String,
+    address: String,
+    state: String,
+    city: String,
+    pin: Number,
+    gst: Number,
+    cgst: Number,
+    sgst: Number,
+    balance: Number,
+    qty: Number,
+    pfNo: String,
+    invNo: String,
+    date: String,
+    price: Number,
+    invCount: {
+      type: Number,
+      default: 0
     },
-    {
-        timestamps: true
+    pfCount: {
+      type: Number,
+      default: 0
     }
-)
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const Invoice = mongoose.models.Invoice || mongoose.model("Invoice", invoiceSchema)
+const Invoice = mongoose.models.Invoice || mongoose.model("Invoice", invoiceSchema);
 
 export default Invoice;
