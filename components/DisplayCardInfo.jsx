@@ -182,62 +182,6 @@ const DisplayCardInfo = ({ id }) => {
 
 
   // Prepare the data to be sent
-  const handleCountSubmit = async (e) => {
-    e.preventDefault();
-
-    const data = {
-      invCount: invoiceCount,
-    };
-
-    try {
-      // Send a POST request to add the invoice
-      const res = await fetch("http://localhost:3000/api/invoiceDownload", {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      if (res.ok) {
-        // If successful, redirect to homepage
-        router.push("/");
-        router.refresh();
-      } else {
-        throw new Error("Failed to add invoice Count.");
-      }
-    } catch (error) {
-      console.error("Error downloading invoice:", error);
-    }
-  };
-
-
-  // Prepare the data to be sent
-  const handlePfCountSubmit = async (e) => {
-    e.preventDefault();
-
-    const data = {
-      pfCount: porformaCount,
-    };
-
-    try {
-      // Send a POST request to add the invoice
-      const res = await fetch("http://localhost:3000/api/invoiceDownload", {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      if (res.ok) {
-        // If successful, redirect to homepage
-        router.push("/");
-        router.refresh();
-      } else {
-        throw new Error("Failed to add invoice Count.");
-      }
-    } catch (error) {
-      console.error("Error downloading invoice:", error);
-    }
-  };
-
   useEffect(() => {
     const fetchInvoice = async () => {
       try {
@@ -347,7 +291,7 @@ const DisplayCardInfo = ({ id }) => {
           </p>
 
           <p>Invoice dowloaded: {invoiceCount} times</p>
-          <p>Invoice dowloaded: {porformaCount} times</p>
+          <p>PF dowloaded: {porformaCount} times</p>
           {/* <p>
          PF dowloaded:  {pfCount} times
         </p> */}
