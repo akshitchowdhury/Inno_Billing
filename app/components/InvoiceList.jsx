@@ -34,7 +34,7 @@ const InvoiceList = async () => {
             transition duration-500 ease-in-out  border-gray-300 rounded-lg p-6"
           >
             <Link
-              href={`/getOneInvoice/${invoice._id}`}
+              href={`${process.env.NEXT_PUBLIC_SOLO_URL}/pages/getOneInvoice/${invoice._id}`}
             >
               <div
                 className="flex justify-between items-start bg-blue-300
@@ -79,7 +79,7 @@ const InvoiceList = async () => {
 
             <div className="flex gap-2 my-4">
               <RemoveBtn id={invoice._id} />
-              <Link href={`/editInvoice/${invoice._id}`}>
+              <Link href={`${process.env.NEXT_PUBLIC_SOLO_URL}/pages/editInvoice/${invoice._id}`}>
                 <button
                   className="bg-indigo-700 text-white hover:bg-green-400 hover:text-red-700 transition-colors
                    duration-300 py-2 px-4 rounded-lg"
