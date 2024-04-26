@@ -12,7 +12,6 @@ const getInvoiceById = async (id) => {
       if (!res.ok) {
         throw new Error("Failed to fetch invoice");
       }
-  
       return res.json();
     } catch (error) {
       console.log(error);

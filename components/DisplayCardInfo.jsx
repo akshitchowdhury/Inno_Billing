@@ -1,110 +1,3 @@
-// "use client"
-
-// import { useRouter } from 'next/router';
-// import React, { useEffect, useState } from 'react';
-// import InvoicePdf from './InvoicePdf';
-// import PfPdf from './PfPdf';
-
-// const DisplayCardInfo = ({ id }) => {
-
-//   const [invoice, setInvoice] = useState(null);
-//   const [loading, setLoading] = useState(true);
-//   // const router = useRouter();
-
-//   useEffect(() => {
-//     const fetchInvoice = async () => {
-//       try {
-//         const res = await fetch(`http://localhost:3000/api/invoices/${id}`, {
-//           cache: "no-store",
-//         });
-
-//         if (!res.ok) {
-//           throw new Error("Failed to fetch invoice");
-//         }
-
-//         const data = await res.json();
-//         setInvoice(data.invoice);
-//         setLoading(false);
-//       } catch (error) {
-//         console.error(error);
-//       }
-//     };
-//     fetchInvoice(); // No need to pass id here, as it's already in the scope
-//   }, [id]);
-
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
-
-//   if (!invoice) {
-//     return <div>Invoice not found</div>;
-//   }
-
-//   const {       client,
-//     project,
-//     address,
-//     services,
-//     state,
-//     city,
-//     pin ,
-//     gst ,
-//     cgst,
-//     sgst,
-//     balance,
-//     qty,
-//     pfNo,
-//     invNo,
-//     date,
-//     price } = invoice;
-
-//   return (
-//     <div>
-//      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-//   <h2 className="text-xl font-bold mb-4">Invoice Details</h2>
-//   <div className="grid grid-cols-2 gap-4">
-//     <p className="mb-2">
-//       <span className="font-bold">ID:</span> {id}
-//     </p>
-//     <p className="mb-2">
-//       <span className="font-bold">Client:</span> {client}
-//     </p>
-//     <p className="mb-2">
-//       <span className="font-bold">Project:</span> {project}
-//     </p>
-//     <p className="mb-2">
-//       <span className="font-bold">Address:</span> {address}
-//     </p>
-//     <p className="mb-2">
-//       <span className="font-bold">Services:</span> {services}
-//     </p>
-//     <p className="mb-2">
-//       <span className="font-bold">State:</span> {state}
-//     </p>
-//     <p className="mb-2">
-//       <span className="font-bold">City:</span> {city}
-//     </p>
-//     <p className="mb-2">
-//       <span className="font-bold">PIN:</span> {pin}
-//     </p>
-//     <p className="mb-2">
-//       <span className="font-bold">GST:</span> {date}
-//     </p>
-//     <p className="mb-2">
-//       <span className="font-bold">Price:</span> {price}
-//     </p>
-//   </div>
-// </div>
-
-// <InvoicePdf invoice={invoice}/>
-// <br/>
-//   <PfPdf invoice={invoice}/>
-
-//     </div>
-//   );
-// };
-
-// export default DisplayCardInfo;
-
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -194,6 +87,8 @@ const DisplayCardInfo = ({ id }) => {
         }
 
         const data = await res.json();
+        console.log(data.invoice.client)
+
         console.log("count is",data.invoice.pfCount);
         setInvoiceCount(data.invoice.invCount)
         setPorformaCount(data.invoice.pfCount);
@@ -242,52 +137,52 @@ const DisplayCardInfo = ({ id }) => {
         <h2 className="text-xl font-bold mb-4">Invoice Details</h2>
         <div className="grid grid-cols-2 gap-4">
           <p className="mb-2">
-            <span className="font-bold">Client:</span> {client}
+            <span className="font-bold">Client:</span> {invoice.client}
           </p>
           <p className="mb-2">
-            <span className="font-bold">Project:</span> {project}
+            <span className="font-bold">Project:</span> {invoice.project}
           </p>
           <p className="mb-2">
-            <span className="font-bold">Address:</span> {address}
+            <span className="font-bold">Address:</span> {invoice.address}
           </p>
           <p className="mb-2">
-            <span className="font-bold">Services:</span> {services}
+            <span className="font-bold">Services:</span> {invoice.services}
           </p>
           <p className="mb-2">
-            <span className="font-bold">State:</span> {state}
+            <span className="font-bold">State:</span> {invoice.state}
           </p>
           <p className="mb-2">
-            <span className="font-bold">City:</span> {city}
+            <span className="font-bold">City:</span> {invoice.city}
           </p>
           <p className="mb-2">
-            <span className="font-bold">PIN:</span> {pin}
+            <span className="font-bold">PIN:</span> {invoice.pin}
           </p>
           <p className="mb-2">
-            <span className="font-bold">GST:</span> {gst}
+            <span className="font-bold">GST:</span> {invoice.gst}
           </p>
           <p className="mb-2">
-            <span className="font-bold">CGST:</span> {cgst}
+            <span className="font-bold">CGST:</span> {invoice.cgst}
           </p>
           <p className="mb-2">
-            <span className="font-bold">SGST:</span> {sgst}
+            <span className="font-bold">SGST:</span> {invoice.sgst}
           </p>
           <p className="mb-2">
-            <span className="font-bold">Balance:</span> {balance}
+            <span className="font-bold">Balance:</span> {invoice.balance}
           </p>
           <p className="mb-2">
-            <span className="font-bold">Quantity:</span> {qty}
+            <span className="font-bold">Quantity:</span> {invoice.qty}
           </p>
           <p className="mb-2">
-            <span className="font-bold">PF Number:</span> {pfNo}
+            <span className="font-bold">PF Number:</span> {invoice.pfNo}
           </p>
           <p className="mb-2">
-            <span className="font-bold">Invoice Number:</span> {invNo}
+            <span className="font-bold">Invoice Number:</span> {invoice.invNo}
           </p>
           <p className="mb-2">
-            <span className="font-bold">Date:</span> {date}
+            <span className="font-bold">Date:</span> {invoice.date}
           </p>
           <p className="mb-2">
-            <span className="font-bold">Price:</span> {price}
+            <span className="font-bold">Price:</span> {invoice.price}
           </p>
 
           <p>Invoice dowloaded: {invoiceCount} times</p>
