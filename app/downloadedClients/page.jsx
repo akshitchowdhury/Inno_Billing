@@ -99,18 +99,20 @@ const totalPfCountt = Pfstock()
     </div>
     <div className="w-full md:w-1/2">
         <div>
-            <h1 className="text-xl font-bold mb-4">List of clients having PF's generated</h1>
+            <h1 className="text-xl font-bold mb-4">List of clients having PFs generated</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {invoices.map((invoice, index) => (
                     invoice.pfCount && invoice.pfCount > 0 ? (
+                      <div key={index}>
                       <Link 
               href={`/getOneInvoice/${invoice._id}`}> 
-                        <div key={index} className="bg-white p-4 rounded-lg shadow-md
+                        <div  className="bg-white p-4 rounded-lg shadow-md
                         hover:bg-sky-400 trasnsition duration-300
                         ease-in-out">
                             <h1 className="text-lg font-semibold">{invoice.client}</h1>
                         </div>
                         </Link>
+                        </div>
                     ) : (
                         <div key={index}></div>
                     )
