@@ -20,6 +20,7 @@ const getInvoices = async () => {
 
 const InvoiceList = async () => {
   const { invoices } = await getInvoices();
+  console.log(invoices)
 
   return (
     <>
@@ -71,33 +72,7 @@ const InvoiceList = async () => {
                   <div className="mb-2">
                     <span className="font-bold">pf downloaded:</span> {invoice.pfCount} times
                   </div>
-                  {/* <div className="mb-2">
-                    <span className="font-bold">GST:</span> {invoice.gst}
-                  </div>
-                  <div className="mb-2">
-                    <span className="font-bold">CGST:</span> {invoice.cgst}
-                  </div>
-                  <div className="mb-2">
-                    <span className="font-bold">SGST:</span> {invoice.sgst}
-                  </div>
-                  <div className="mb-2">
-                    <span className="font-bold">Balance:</span> {invoice.balance}
-                  </div>
-                  <div className="mb-2">
-                    <span className="font-bold">Quantity:</span> {invoice.qty}
-                  </div>
-                  <div className="mb-2">
-                    <span className="font-bold">PF No:</span> {invoice.pfNo}
-                  </div>
-                  <div className="mb-2">
-                    <span className="font-bold">Invoice No:</span> {invoice.invNo}
-                  </div>
-                  <div className="mb-2">
-                    <span className="font-bold">Date:</span> {invoice.date}
-                  </div>
-                  <div>
-                    <span className="font-bold">Price:</span> ₹{invoice.price}
-                  </div> */}
+                  
                 </div>
               </div>
             </Link>
