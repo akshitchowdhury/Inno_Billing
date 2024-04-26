@@ -241,7 +241,7 @@ export default function EditInvoiceForm({id, client, project, address, services,
     e.preventDefault();
   
     try {
-      const res = await fetch(`http://localhost:3000/api/invoices/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/invoices/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
