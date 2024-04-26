@@ -1,9 +1,15 @@
 
-
+"use client"
 import React from "react";
 import RemoveBtn from "./RemoveBtn";
 import Link from "next/link";
-import InvoiceCustomers from "@/app/components/InvoiceCustomers"
+import { useRouter } from "next/router";
+
+const router = useRouter()
+
+const handleNavigation = (ivoiceId)=>{
+    router.push(`/pages/getOneInvoice/${ivoiceId}`)
+}
 const getInvoices = async () => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api`, { cache: "no-store" });
@@ -33,13 +39,14 @@ const InvoiceList = async () => {
             hover:scale-105 
             transition duration-500 ease-in-out  border-gray-300 rounded-lg p-6"
           >
-            <Link
-              href={`${process.env.NEXT_PUBLIC_SOLO_URL}/pages/getOneInvoice/${invoice._id}`}
-            >
+            {/* <Link
+              href={`/pages/getOneInvoice/${invoice._id} `}
+            > */}
               <div
                 className="flex justify-between items-start bg-blue-300
            hover:bg-zinc-700 hover:text-white transition duration-500 ease-in-out
             rounded-lg shadow-md p-6 py-2"
+            onClick={handleNavigation}
               >
                 <div>
                   <h2 className="font-bold text-xl mb-4">
@@ -75,11 +82,11 @@ const InvoiceList = async () => {
                   
                 </div>
               </div>
-            </Link>
+            {/* </Link> */}
 
             <div className="flex gap-2 my-4">
               <RemoveBtn id={invoice._id} />
-              <Link href={`${process.env.NEXT_PUBLIC_SOLO_URL}/pages/editInvoice/${invoice._id}`}>
+              <Link href={`/pages/editInvoice/${invoice._id}`}>
                 <button
                   className="bg-indigo-700 text-white hover:bg-green-400 hover:text-red-700 transition-colors
                    duration-300 py-2 px-4 rounded-lg"
