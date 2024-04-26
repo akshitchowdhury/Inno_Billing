@@ -80,9 +80,9 @@ const totalPfCountt = Pfstock()
                 {invoices.map((invoice, index) => (
                     invoice.invCount && invoice.invCount > 0 ? (
                       <Link
-              href={`/getOneInvoice/${invoice._id}`}
+              href={`/getOneInvoice/${invoice._id}`} key={invoice.id}
             >
-                        <div key={invoice.id} className="bg-white p-4 rounded-lg shadow-md
+                        <div  className="bg-white p-4 rounded-lg shadow-md
                         hover:bg-red-400 trasnsition duration-300
                         ease-in-out">
                             <h1 className="text-lg font-semibold">{invoice.client}</h1>
