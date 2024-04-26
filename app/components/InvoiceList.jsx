@@ -3,7 +3,7 @@
 import React from "react";
 import RemoveBtn from "./RemoveBtn";
 import Link from "next/link";
-import InvoiceCustomers from "@/components/InvoiceCustomers"
+import InvoiceCustomers from "@/app/components/InvoiceCustomers"
 const getInvoices = async () => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api`, { cache: "no-store" });

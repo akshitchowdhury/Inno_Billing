@@ -1,4 +1,4 @@
-import InvoiceList from "@/components/InvoiceList";
+import InvoiceList from "@/app/components/InvoiceList";
 import Image from "next/image";
 
 
