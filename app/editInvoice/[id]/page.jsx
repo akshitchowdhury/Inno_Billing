@@ -5,7 +5,7 @@ import EditInvoiceForm from "@/components/EditInvoiceForm";
 
 const getInvoiceById = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/invoices/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/invoices/${id}`, {
         cache: "no-store",
       });
   

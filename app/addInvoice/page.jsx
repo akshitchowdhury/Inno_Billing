@@ -266,7 +266,7 @@ export default function AddInvoice() {
 
     try {
       // Send a POST request to add the invoice
-      const res = await fetch("http://localhost:3000/api", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(data),

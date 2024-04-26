@@ -4,7 +4,7 @@ import React from 'react'
 
 const getInvoices = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api", { cache: "no-store" });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api`, { cache: "no-store" });
 
     if (!res.ok) {
       throw new Error("Failed to fetch invoices");

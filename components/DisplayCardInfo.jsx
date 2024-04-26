@@ -126,7 +126,7 @@ const DisplayCardInfo = ({ id }) => {
     try {
 
       console.log(invoiceCount + 1)
-      const res = await fetch(`http://localhost:3000/api/invoices/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/invoices/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
@@ -157,7 +157,7 @@ const DisplayCardInfo = ({ id }) => {
     try {
 
       console.log(invoiceCount + 1)
-      const res = await fetch(`http://localhost:3000/api/invoices/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/invoices/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
@@ -185,7 +185,7 @@ const DisplayCardInfo = ({ id }) => {
   useEffect(() => {
     const fetchInvoice = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/api/invoices/${id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/invoices/${id}`, {
           cache: "no-store",
         });
 
