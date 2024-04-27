@@ -1,10 +1,8 @@
 
-"use client"
+
 import React from "react";
 import RemoveBtn from "./RemoveBtn";
 import Link from "next/link";
-// import { useRouter } from "next/router";
-
 const getInvoices = async () => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api`, { cache: "no-store" });
@@ -23,12 +21,6 @@ const InvoiceList = async () => {
   const { invoices } = await getInvoices();
   console.log(invoices)
 
-  
-// const router = useRouter()
-
-// const handleNavigation = (ivoiceId)=>{
-//     router.push(`/pages/getOneInvoice/${ivoiceId}`)
-// }
   return (
     <>
     
@@ -40,14 +32,13 @@ const InvoiceList = async () => {
             hover:scale-105 
             transition duration-500 ease-in-out  border-gray-300 rounded-lg p-6"
           >
-            <a
-              href={`/pages/getOneInvoice/${invoice._id} `}
+            <Link
+              href={`/getOneInvoice/${invoice._id}`}
             >
               <div
                 className="flex justify-between items-start bg-blue-300
            hover:bg-zinc-700 hover:text-white transition duration-500 ease-in-out
             rounded-lg shadow-md p-6 py-2"
-            
               >
                 <div>
                   <h2 className="font-bold text-xl mb-4">
@@ -80,14 +71,40 @@ const InvoiceList = async () => {
                   <div className="mb-2">
                     <span className="font-bold">pf downloaded:</span> {invoice.pfCount} times
                   </div>
-                  
+                  {/* <div className="mb-2">
+                    <span className="font-bold">GST:</span> {invoice.gst}
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-bold">CGST:</span> {invoice.cgst}
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-bold">SGST:</span> {invoice.sgst}
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-bold">Balance:</span> {invoice.balance}
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-bold">Quantity:</span> {invoice.qty}
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-bold">PF No:</span> {invoice.pfNo}
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-bold">Invoice No:</span> {invoice.invNo}
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-bold">Date:</span> {invoice.date}
+                  </div>
+                  <div>
+                    <span className="font-bold">Price:</span> ₹{invoice.price}
+                  </div> */}
                 </div>
               </div>
-            </a>
+            </Link>
 
             <div className="flex gap-2 my-4">
               <RemoveBtn id={invoice._id} />
-              <Link href={`/pages/editInvoice/${invoice._id}`}>
+              <Link href={`/editInvoice/${invoice._id}`}>
                 <button
                   className="bg-indigo-700 text-white hover:bg-green-400 hover:text-red-700 transition-colors
                    duration-300 py-2 px-4 rounded-lg"

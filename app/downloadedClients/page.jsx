@@ -105,7 +105,7 @@ const totalPfCountt = Pfstock()
                     invoice.pfCount && invoice.pfCount > 0 ? (
                       <div key={index}>
                       <Link 
-              href={`app/getOneInvoice/${invoice._id}`}> 
+              href={`pages/getOneInvoice/${invoice._id}`}> 
                         <div  className="bg-white p-4 rounded-lg shadow-md
                         hover:bg-sky-400 trasnsition duration-300
                         ease-in-out">

@@ -1,7 +1,7 @@
 //client side logi to edit a topic ; so we import EditTopicForm component and create the logic and send props to the comp
 
-import DisplayCardInfo from "@/app/components/DisplayCardInfo";
-
+import EditInvoiceForm from "@/app/components/EditInvoiceForm";
+export const dynamic = 'force-dynamic'
 
 const getInvoiceById = async (id) => {
     try {
@@ -12,13 +12,14 @@ const getInvoiceById = async (id) => {
       if (!res.ok) {
         throw new Error("Failed to fetch invoice");
       }
+  
       return res.json();
     } catch (error) {
       console.log(error);
     }
   };
   
-  export default async function GetOneInvoice({ params }) {
+  export default async function EditInvoice({ params }) {
     const { id } = params;
     const { invoice } = await getInvoiceById(id);
     const { 
@@ -41,7 +42,7 @@ const getInvoiceById = async (id) => {
     invCount,
   pfCount} = invoice;
   
-    return <DisplayCardInfo id={id}  client={client} 
+    return <EditInvoiceForm id={id} client={client} 
     project ={project}
     address={address}
     services={services}
@@ -58,5 +59,5 @@ const getInvoiceById = async (id) => {
     date={date}  
     qty={qty} 
     invCount = {invCount} 
-    pfCount = {pfCount} />;
+    pfCount = {pfCount} />
   }
